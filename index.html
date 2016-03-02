@@ -1,18 +1,50 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>my first web site</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body text = "#9460AD" bgcolor="#CFAAAA">
-        <h1> <font face="GEORGİA"color= "#FF2222">Welcome to my web page !</font></h1>
-        I will share <h2> my biography </h2> <h2> my research interest </h2>and <h2> my hobies </h2> here .
-        <p> I hope you will <em>enjoy</em> surfing on my <strong>website</strong> </p>
+    <title>CS102</title>
+    <style>
+        h1{
+            background-color: silver;
+            color: gold;
+            font-family: monospace;
+            text-align: center;
+        }
+        h2 {
+            font-family:  serif;
+            font-size: 2em;
+            color: #999999;
+            background-color: mintcream;
+        }
+        body {
+            background-color: mintcream;
+        }
+        h2#first{
+            color: red;
+        }
+        .h1h2 {
+            background-color: lightgreen;
+        }
+        #org {
+            left: 100px;
+            top: 100px;
+            display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    <body>
+        <div id="org">
+            <table><tr><td>
+                <h1>WELCOME TO MY WEB PAGE!</h1>
+                I will share
+                <h2 id="first">My biography</h2>
+                <h2 class="h1h2">My research interests</h2>
+                and
+                <h2 style="text-align: right;">My hobies</h2>
+                here
+                <p>I hope you will enjoy surfing on my web page</p>
+            </td></tr></table>
+        </div>
     </body>
 </html>
