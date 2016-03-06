@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Table</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-        <body>
-            <table border="1" style="width:100%;height:620px;text-align:center;">
-                <tr>
-                    <td>a</td>
-                    <td>b</td>
-                    <td>c</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>x</td>
-                    <td>y</td>
-                    <td>z</td>
-                </tr>
-                </table>
-        </body>
+    <title>Form and input</title>
+</head>
+<body text="black" bgcolor="#C0C0C0">
+    <form action="action_page.php">
+        <fieldset>
+            <legend>Information about yourself:</legend>
+            First name:<br>
+            <input types="text" name="firstname"><br>
+            Last name:<br>
+            <input types="text" name="lastname"><br>
+            ID number:<br>
+            <input types="text" ID number="ýdnumber"><br>
+            e-mail:<br>
+            <input types="text" e-mail="e-mail"><br>
+                Age:<br>
+            <input types="text" age ="age"><br>
+            <input type="checkbox" name="female" value="on"> Female
+            <input type="checkbox" name="male" value="on"> Male
+                <p>Hobbies:</p>
+                <input type="radio" name="hobbies" value="Reading"> Reading<br>
+                <input type="radio" name="hobbies" value="Puzzles"> Puzzles<br>
+                <input type="radio" name="hobbies" value="Hiking"> Hiking<br>
+                <input type="radio" name="hobbies" value="Paintball"> Paintball<br>
+                <input type="radio" name="hobbies" value="Collecting"> Collecting<br>
+                <input type="radio" name="hobbies" value="water sports"> Water Sports<br>
+                    <input type="radio" name="hobbies" value="other"> Other<br>
+            Description:<br/>
+            <textarea rows="5" cols="50" name="description">
+            If you choose other option you will write description here...
+            </textarea>
+            <input type="submit" value="Submit">
+       </fieldset>
+    </form>
+</body>
 </html>
