@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Form and input</title>
-</head>
-<body text="black" bgcolor="#C0C0C0">
-    <form action="action_page.php">
-        <fieldset>
-            <legend>Information about yourself:</legend>
-            First name:<br>
-            <input dirname="text" name="firstname"><br>
-            Last name:<br>
-            <input dirname="text" name="lastname"><br>
-            ID number:<br>
-            <input dirname="text" name="ýdnumber"><br>
-            e-mail:<br>
-            <input dirname="text" name="e-mail"><br>
-                Age:<br>
-            <input dirname="text" name ="age"><br>
-            <input type="checkbox" name="female" value="on"> Female
-            <input type="checkbox" name="male" value="on"> Male
-                <p>Hobbies:</p>
-                <input type="radio" name="hobbies" value="Reading"> Reading<br>
-                <input type="radio" name="hobbies" value="Puzzles"> Puzzles<br>
-                <input type="radio" name="hobbies" value="Hiking"> Hiking<br>
-                <input type="radio" name="hobbies" value="Paintball"> Paintball<br>
-                <input type="radio" name="hobbies" value="Collecting"> Collecting<br>
-                <input type="radio" name="hobbies" value="water sports"> Water Sports<br>
-                    <input type="radio" name="hobbies" value="other"> Other<br>
-            Description:<br/>
-            <textarea rows="5" cols="50" name="description">
-            If you choose other option you will write description here...
-            </textarea>
-            <input type="submit" value="Submit">
-       </fieldset>
-    </form>
-</body>
+            <title>Dynamic contex</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <style>
+            #outer {
+                position:absolute;
+                top:45%;
+                left:45%;
+                background-color: lightgreen;
+                widht:5em;
+                height:2em;
+            }
+            #inner {
+                top:45%;
+                left:45%;
+                clear: both;
+                vertical-align: middle;
+                text-align: center;
+                background-color: blue;
+                color: whitesmoke;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="outer">
+        <span id="inner">
+            <a style="color:white;" href="http://www.hello.com" target="_blank">HELLO!</a>
+        </span>
+            </div>
+        <script>
+            $('#inner').hover(
+                function() {
+                   $(this).css("background-color","green");
+              },
+                function() {
+                   $(this).css("background-color","green");
+              }
+              );
+      
+      $('#inner').click(
+              function() {
+                  window.location="http://www.hello.de";
+              }
+              );
+         </script>
+    </body>
 </html>
