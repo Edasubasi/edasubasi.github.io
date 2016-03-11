@@ -1,51 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-            <title>Dynamic contex</title>
+        <title>factorial(n)</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <style>
-            #outer {
-                position:absolute;
-                top:45%;
-                left:45%;
-                background-color: lightgreen;
-                widht:5em;
-                height:2em;
+        <script>
+            /*
+             * 
+             */
+            function factorial(num) {
+                    var res=1; //the result we will return
+                    for(var i=2; i<=num; i++) { //loop up to num
+                         res = res * i; //res *=i;
+                 }
+                return res;
             }
-            #inner {
-                top:45%;
-                left:45%;
-                clear: both;
-                vertical-align: middle;
-                text-align: center;
-                background-color: blue;
-                color: whitesmoke;
+            
+            // var res5 = factorial(5);
+            
+            function calculate() {
+                var innum=$('#num')[0].val();
+                var res = factorial(innum);
+                $('#res')[0].val(res);
             }
-        </style>
+        </script>
     </head>
     <body>
-        <div id="outer">
-        <span id="inner">
-            <a style="color:white;" href="http://www.hello.com" target="_blank">HELLO!</a>
-        </span>
-            </div>
-        <script>
-            $('#inner').hover(
-                function() {
-                   $(this).css("background-color","green");
-              },
-                function() {
-                   $(this).css("background-color","green");
-              }
-              );
-      
-      $('#inner').click(
-              function() {
-                  window.location="http://www.hello.de";
-              }
-              );
-         </script>
+        <div>
+            <form>
+                <input type="text" id="num" value="6"/>
+                <input type="text" id="res" placeholder="Here goes the result"/>
+                <input type="button" 
+                       onmouseover="calculate();"
+                       /> 
+            </form>
+        </div>
+        <script>    
+            function calculate() {
+                var innum=$('#num').val();
+                var res = factorial(innum);
+                $('#res').val(res);
+            }
+        </script>
     </body>
 </html>
