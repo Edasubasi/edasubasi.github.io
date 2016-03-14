@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>factorial(n)</title>
+
+  <head>
+    <title>Basic calculator</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script>
-            /*
-             * 
-             */
-            function factorial(num) {
-                    var res=1; //the result we will return
-                    for(var i=2; i<=num; i++) { //loop up to num
-                         res = res * i; //res *=i;
-                 }
-                return res;
-            }
-            
-            // var res5 = factorial(5);
-            
-            function calculate() {
-                var innum=$('#num')[0].val();
-                var res = factorial(innum);
-                $('#res')[0].val(res);
-            }
-        </script>
-    </head>
-    <body>
-        <div>
-            <form>
-                <input type="text" id="num" value="6"/>
-                <input type="text" id="res" placeholder="Here goes the result"/>
-                <input type="button" 
-                       onmouseover="calculate();"
-                       /> 
-            </form>
-        </div>
-        <script>    
-            function calculate() {
-                var innum=$('#num').val();
-                var res = factorial(innum);
-                $('#res').val(res);
-            }
-        </script>
-    </body>
+        <script   src="https://code.jquery.com/jquery-2.2.1.js"   integrity="sha256-eNcUzO3jsv0XlJLveFEkbB8bA7/CroNpNVk3XpmnwHc="   crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <form>
+      <input type="text" id="input1">
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <input type="text" id="input2">
+      <input type="button" id="calc" value="calc" onclick="calculate();">
+      <input type="text" id="output" disabled>
+      <br>
+    </form>
+    <div id="error">
+    </div>
+    <script>
+        var i=1;
+        
+        function calculate () {
+        var in1 = parseInt($('input1').val());
+        var in2 = parseInt($('input2').val());
+      function calculate(){
+     if(checkout1(in1,in2)) {
+         var res = eval(in1 + $('#operator').val() + in2);
+         $('#output').val(res);
+     } else {
+         $('#error').html("You made" + i +"mistakes");
+         i++;
+     }
+ }
+        function checkInput1(in1,in2){
+        if ((isNaN(in1)) || isNaN(in2)) {// || means OR ;&& means AND ;! means NOT
+              return false;
+      }
+      return true;
+      
+    }
+      
+      function checkInput2() {
+          if (isNaN (in2))
+              return false;
+      }
+          return true;
+      }
+      function checkInput3() {
+          if(isNaN(in1)) {
+              return false;
+      }else if {
+          if(isNaN(in2)) {
+                  return false;
+          }
+              return true;
+          }
+
+    </script>
+  </body>
 </html>
+
