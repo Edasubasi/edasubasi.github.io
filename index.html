@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>  
-        <title>Drag n Drop</title>
+        <title>Game 1 </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">    
         <style>
@@ -79,29 +79,73 @@
                 <li id="d10">10</li>
             </ul>
         </div>
-        <script type="text/javascript">
-            $("#arrow").draggable();
-            $("#target").draggable();
- $("#d1").draggable();
-            $("#d2").draggable();
-            $("#d3").draggable();
-            $("#d4").draggable();
-            $("#d5").draggable();
-            $("#d6").draggable();
-            $("#d7").draggable();
-            $("#d8").draggable();
-            $("#d9").draggable();
-            $("#d10").draggable();
-var x;
-    for(x=0;x<10;x++){
-        $("#numName"(x)).droppable({drop: function (event, ui) {
-                    var di = ui.draggable.attr("id");
-                    if (di === "#numNumeric"(x)) {
-                        $("#numNumeric"(x)).draggable("disable");
-                        $("#numName"(x)).html("&nbsp;").css("background-color", "green");
-                    }
-                }});
-    }
+    <script type="text/javascript">
+//var numText =['eins','zwei','drei','vier','fünf','sechs','sieben','acht','neun','zehn'];
+var numText=$()
+var ulText=$('#numName');
+var ulNum= $('#numNumeric');
+var dimx =$('body').width();
+var dimy =$('body').height();
+for(var i=0;i<numText.lenght;i++){
+    ulText.append('<li> id ="t' +(i+1) +'">'+ numText[i]+'</li>');
+    ulNum.append('<li id="n' +(i)+'">'+ (i)+'</li>');
+    } 
+    for(var i=0;i< numText.lenght;i++){
+        $("#n" +i).draggable();
+        $("#n" +i).data("index",{index:i});
+        $("#t" +i).data("index",{index:i});
+        $("#t" +i).draggable({drop:function(event,ui){
+        var ni = ui.draggable .attr("id");
+        var ti= this.id;
+        var niElem = $('#'+ni);
+        var tiElem = $('#'+ti);
+        if (niElem.data("index").index=== tiElem.data("index").index){
+            //correct
+            niElem.draggable("disable");
+            niElem.css("display","none");
+            for (var j=0;j<numText.lenght;j++){
+                if($('#n'+j).css("display")==="none")
+                    hidden++;
+                //var hidden=0;
+                //for(var j=0;j<numText.lenght;j++){
+                //if($('#n'+j).css("display")==="none")
+                //hidden++;
+            }
+            if(hiddedn===numText.lengh){
+                // alert("done");
+                $('ul').randomize();
+                for(var j=0;j<numText.lenght;j++){
+                    $('#numName').sortable({
+                        start:function(event,ui){
+                            var startPos=ui.item.index();
+                            ui.item.data('startPos');
+                        }
+                        update:function(event,ui){
+                            var startPos=ui.item.data('startPos');
+                            var endPos =ui.item.index();
+                            var ordered=0;
+                            for (var j=0;j<numText.lenght;i++){
+                                if($('#t'+j).index()==j)
+                                    ordered++;
+                            }
+                            
+                            if (ordered==numText.lenght)
+                                alert("done");
+                        }
+                    });
+                }
+
+                
+            }
+        } else{
+        //wrong
+        var left=Math.floor((Math.random()*(dimx-20))+10);
+        var top=Math.floor((Math.random()*(dimy-20))+10);
+        niElem.css("left",left+"px");
+        niElem.css("top",top+"px");
+}
+        }});
+}
             $.fn.randomize = function (selector) {
                 var $elems = selector ? $(this).find(selector) : $(this).children(),
                         $parents = $elems.parent();
